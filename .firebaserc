@@ -1,0 +1,13 @@
+{
+  "projects": {
+    "default": "localloop-demo"
+  },
+  "targets": {
+    "localloop-demo": {
+      "hosting": {
+        "staging": ["localloop-staging"],
+        "production": ["localloop"]
+      }
+    }
+  }
+}

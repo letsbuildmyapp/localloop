@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LocalLoop — Soft Consumer archetype.
+   Palette derived in OKLCH, converted to HSL for Tailwind tokens.
+   Primary: warm coral (oklch ~70% 0.16 35).  Accent: minty sage. */
+@layer base {
+  :root {
+    --background: 30 60% 97%;       /* warm off-white #fff7f1 */
+    --foreground: 25 25% 15%;       /* cocoa */
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 15%;
+
+    --primary: 16 95% 65%;          /* coral #ff8a5b */
+    --primary-foreground: 25 35% 12%;
+
+    --secondary: 35 95% 92%;        /* peach cream */
+    --secondary-foreground: 25 30% 18%;
+
+    --muted: 30 30% 94%;
+    /* Bumped from 42% L → 34% L so muted text clears WCAG AA (≥4.5:1)
+       on the warm off-white background in light mode. */
+    --muted-foreground: 25 14% 34%;
+
+    --accent: 156 35% 78%;          /* sage mint */
+    --accent-foreground: 160 35% 18%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 30% 88%;
+    --input: 30 30% 88%;
+    --ring: 16 95% 65%;
+  }
+
+  .dark {
+    --background: 25 25% 9%;
+    --foreground: 30 30% 95%;
+    --card: 25 22% 12%;
+    --card-foreground: 30 30% 95%;
+    --popover: 25 22% 12%;
+    --popover-foreground: 30 30% 95%;
+    --primary: 16 95% 68%;
+    --primary-foreground: 25 35% 10%;
+    --secondary: 25 22% 18%;
+    --secondary-foreground: 30 30% 95%;
+    --muted: 25 18% 18%;
+    /* Bumped from 65% L → 72% L so muted text clears WCAG AA on the
+       cocoa background in dark mode. */
+    --muted-foreground: 30 18% 72%;
+    --accent: 156 30% 30%;
+    --accent-foreground: 156 50% 92%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 25 18% 22%;
+    --input: 25 18% 22%;
+    --ring: 16 95% 68%;
+  }
+
+  * { @apply border-border; }
+  html { font-size: 16px; }
+  body {
+    @apply bg-background text-foreground text-base;
+    line-height: 1.5;                         /* HIG body floor */
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* Display family + tracking only at display sizes (>24px). */
+  h1, h2, h3, .font-display { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.02em; }
+  /* Body paragraphs cap at ~65ch. Apply explicitly via .prose-cap or
+     max-w-prose; here we just guarantee paragraph leading. */
+  p { line-height: 1.5; }
+  /* Numeric tabular alignment by default for any element opting in. */
+  .nums, [data-nums] { font-variant-numeric: tabular-nums; }
+}
+
+@layer utilities {
+  .blob-bg {
+    background:
+      radial-gradient(60rem 40rem at 10% -10%, hsl(var(--primary) / 0.18), transparent 60%),
+      radial-gradient(40rem 30rem at 100% 10%, hsl(var(--accent) / 0.25), transparent 60%);
+  }
+  .focus-ring { @apply outline-none ring-offset-2 ring-offset-background focus-visible:ring-2 focus-visible:ring-ring; }
+}
