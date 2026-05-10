@@ -88,25 +88,8 @@ export default function SignIn() {
         }}
       />
 
-      <header className="relative z-10 flex items-center justify-between px-6 py-5 sm:px-10">
-        <Link to="/" className="flex items-center gap-2 font-semibold">
-          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
-            <span className="text-sm font-bold">L</span>
-          </div>
-          <span className="tracking-tight">LocalLoop</span>
-        </Link>
-        <span className="text-xs text-muted-foreground">
-          Need help?{" "}
-          <a
-            href="mailto:hello@letsbuildmyapp.com?subject=LocalLoop%20support"
-            className="text-foreground underline-offset-4 hover:underline"
-          >
-            Contact support
-          </a>
-        </span>
-      </header>
 
-      <main className="relative z-10 flex flex-1 items-center justify-center px-6 py-10">
+      <main className="relative z-10 flex flex-1 items-start justify-center px-6 pt-8 sm:pt-12 pb-10">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
