@@ -4,7 +4,7 @@ Hyperlocal home services marketplace — cleaners, handymen, dog walkers, garden
 
 ## Stack
 
-Per `~/Documents/Claude Code/STACK.md`:
+Per `~/Documents/the assistant Code/STACK.md`:
 
 - React 18 + TypeScript + Vite
 - Tailwind CSS, shadcn-style primitives (Radix under the hood)
